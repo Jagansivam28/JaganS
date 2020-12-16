@@ -1,6 +1,5 @@
 /*
-*   Author: beshleyua
-*   Author URL: http://themeforest.net/user/beshleyua
+*
 */
 
 
@@ -17,25 +16,25 @@ $(window).on("load", function() {
 
 $(function () {
 	'use strict';
-	
-	
+
+
 	/*
 		Vars
 	*/
-	
+
 	var width = $(window).width();
 	var height = $(window).height();
-	
-	
+
+
 	/*
 		Header Menu Desktop
 	*/
-	
+
 	var container = $('.container');
 	var card_items = $('.card-inner');
 	var animation_in = container.data('animation-in');
 	var animation_out = container.data('animation-out');
-	
+
 	$('.top-menu').on('click', 'a', function(){
 
 		/* vars */
@@ -48,7 +47,7 @@ $(function () {
 		var d_lnk = $('.lnks .lnk.discover');
 
 		if((width >= 1024)) {
-			
+
 			/* if desktop */
 			if(!menu_item.hasClass('active') & (width > 1023) & $('#home-card').length) {
 
@@ -65,9 +64,9 @@ $(function () {
 				container.addClass('opened');
 				container.find(card_item).removeClass('animated '+animation_out);
 				container.find(card_item).addClass('animated '+animation_in);
-				
+
 				$(card_items).addClass('hidden');
-				
+
 				$(card_item).removeClass('hidden');
 				$(card_item).addClass('active');
 			}
@@ -121,13 +120,13 @@ $(function () {
 			}
 		}
 	});
-	
-	
+
+
 	/*
 		Smoothscroll
 	*/
-	
-	if((width < 1024) & $('#home-card').length) { 
+
+	if((width < 1024) & $('#home-card').length) {
 		$(window).on('scroll', function(){
 			var scrollPos = $(window).scrollTop();
 			$('.top-menu ul li a').each(function () {
@@ -140,28 +139,28 @@ $(function () {
 			});
 		});
 	}
-	
-	
+
+
 	/*
 		slimScroll
 	*/
-	
+
 	if((!$('.page').hasClass('new-skin')) && (width > 1024)) {
 		$('.card-inner .card-wrap').slimScroll({
 			height: '570px'
 		});
 	}
-	
-	
+
+
 	/*
 		Hire Button
 	*/
-	
+
 	$('.lnks').on('click', '.lnk.discover', function(){
 		$('.top-menu a[href="#contacts-card"]').trigger('click');
 	});
-	
-	
+
+
 	/*
 		Initialize Portfolio
 	*/
@@ -184,7 +183,7 @@ $(function () {
 		$(this).addClass('active');
 	});
 
-	
+
 	/*
 		Gallery popup
 	*/
@@ -223,7 +222,7 @@ $(function () {
 		}
 	});
 
-	
+
 	/*
 		Video popup
 	*/
@@ -250,7 +249,7 @@ $(function () {
 		}
 	});
 
-	
+
 	/*
 		Music popup
 	*/
@@ -269,7 +268,7 @@ $(function () {
 	*/
 	$('.has-popup-gallery').on('click', function() {
 		var gallery = $(this).attr('href');
-	
+
 		$(gallery).magnificPopup({
 			delegate: 'a',
 			type:'image',
@@ -284,12 +283,12 @@ $(function () {
 
 		return false;
 	});
-	
-	
+
+
 	/*
 		Validate Contact Form
 	*/
-	
+
 	$("#cform").validate({
 		ignore: ".ignore",
 		rules: {
@@ -321,10 +320,10 @@ $(function () {
 				dataType: 'json',
 				data: 'name='+ $("#cform").find('input[name="name"]').val() + '&email='+ $("#cform").find('input[name="email"]').val() + '&message=' + $("#cform").find('textarea[name="message"]').val(),
 				beforeSend: function() {
-				
+
 				},
 				complete: function() {
-				
+
 				},
 				success: function(data) {
 					$('#cform').fadeOut();
@@ -333,12 +332,12 @@ $(function () {
 			});
 		}
 	});
-	
-	
+
+
 	/*
 		Validate Commect Form
 	*/
-	
+
 	$("#comment_form").validate({
 		rules: {
 			name: {
@@ -352,12 +351,12 @@ $(function () {
 		submitHandler: function() {
 		}
 	});
-	
-	
+
+
 	/*
 		Google Maps
 	*/
-	
+
 	if($('#map').length) {
 		initMap();
 	}
@@ -494,7 +493,7 @@ function initMap() {
 		scrollwheel: false,
 		styles: styles
 	}
-	
+
 	var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 	var marker = new google.maps.Marker({
 		position: myLatlng,
@@ -505,11 +504,11 @@ function initMap() {
 
 ( function( $ ) {
 	'use strict';
-	
+
 	// load html
 	$.get("https://bslthemes.com/ryan/bar/bar.html", function (data) {
         $('body').append(data);
  		console.log(data);
     });
-	
+
 } )( jQuery );
